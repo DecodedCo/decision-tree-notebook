@@ -17,10 +17,17 @@ def rules(clf, features, labels, node_index=0):
                             rules(clf, features, labels, left_index)]
     return node
 
+#    GET DATA COLUMN TITLES
+
+hrnames = np.genfromtxt('HR_data.csv', delimiter=",", skip_header = 0, dtype = str)[0]
+hrnames = hrnames.tolist()
+hrnames_feature = hrnames[0:-1]
+hrnames_target = hrnames[-1]
+
 #    SAVE FORMATTED RULES AS JSON FILE
 
 import json
 
-r = rules(clf, data.feature_names, data.target_names)
+r = rules(clf, hrnames_feature, hrnames_target)
 with open('rules.json', 'w') as f:
     f.write(json.dumps(r))
