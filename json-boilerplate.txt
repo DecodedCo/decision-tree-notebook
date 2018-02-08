@@ -1,16 +1,17 @@
 #    CONVERT RULES TO JSON FORMAT
 
 def rules(clf, features, labels, node_index=0):
-    
+
     node = {}
     if clf.tree_.children_left[node_index] == -1:  # indicates leaf
         count_labels = zip(clf.tree_.value[node_index, 0], labels)
-        node['name'] = ', '.join(('{} of {}'.format(int(count), label)
-                                  for count, label in count_labels))
+        percent_chance = count_labels[1][0]/(count_labels[1][0]+count_labels[0][0])*100
+        n = int(count_labels[0][0] + count_labels[1][0])
+        node['name'] = '{}% chance of leaving, n = {}'.format(round(percent_chance,2), n)
     else:
         feature = features[clf.tree_.feature[node_index]]
         threshold = clf.tree_.threshold[node_index]
-        node['name'] = '{} > {}'.format(feature, threshold)
+        node['name'] = '{} > {}'.format(feature, round(threshold, 2))
         left_index = clf.tree_.children_left[node_index]
         right_index = clf.tree_.children_right[node_index]
         node['children'] = [rules(clf, features, labels, right_index),
