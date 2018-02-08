@@ -22,8 +22,8 @@ def rules(clf, features, labels, node_index=0):
 
 hrnames = np.genfromtxt('HR_data.csv', delimiter=",", skip_header = 0, dtype = str)[0]
 hrnames = hrnames.tolist()
-hrnames_feature = hrnames[0:-1]
-hrnames_target = hrnames[-1]
+hrnames_feature = hrnames[1:0]
+hrnames_target = hrnames[1]
 
 #    SAVE FORMATTED RULES AS JSON FILE
 
