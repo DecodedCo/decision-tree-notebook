@@ -1,9 +1,0 @@
-name: decision-tree-environment
-dependencies:
-  - matplotlib
-  - numpy
-  - scipy
-  - scikit-learn
-  - pandas
-  - graphviz
-  - python-graphviz
