@@ -1,12 +1,10 @@
 # decision-tree-notebook
----
 
-Exercise building a decision tree in scikit learn for the HR "Will Gina quit" dataset.
+Exercise building a decision tree in scikit learn for the "Predicting Loans" dataset.
 
+## Prerequisites
 
-## Instructions
-
-1. Clean HR_data_raw.csv in OpenRefine
-2. Run decision tree notebook with cleaned data
-3. Load hrrules.json + d3tree.html in to thimble for visual tree
-
+1. `pip install matplotlib numpy scipy scikit-learn pandas graphviz pydotplus`
+2. GraphViz binaries:
+	1. Mac: `brew install graphviz`
+	2. Windows: https://graphviz.gitlab.io/_pages/Download/Download_windows.html and update your PATH variable https://www.youtube.com/watch?v=-6z6JOStZx
